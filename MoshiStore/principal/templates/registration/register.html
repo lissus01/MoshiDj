@@ -1,0 +1,46 @@
+{% extends "navBar.html" %}
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+<head>
+    <title>Registrar usuario</title>
+</head>
+{% block body %}
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="row justify-content-md-center">
+    <div class="col-md-auto">
+        <form action="" class="row" method="post">
+        {% csrf_token %}
+        <div class="card">
+            <div class="card-body">
+              <h3 class="card-title">Registrarse</h3>
+              <h5 class="card-title">Complete sus datos</h5>
+              {{ form | crispy }}
+                <div class="col-12">
+                <br></br>
+                <div class="d-flex justify-content-center">
+                <button id="btnregistro" class="btn btn-primary" type="submit">Crear cuenta</button>
+                </div>
+                </div>
+                <br>
+            <a href="{% url 'perfil' %}" style="text-align: center;">¿Tienes cuenta? - ¡Inicia sesión!</a>
+            <br>
+            </div>
+          </div>
+            <br>
+            <br>
+        </form>
+    </div>
+    </div>
+    <br><br><br>
+{% endblock  %}

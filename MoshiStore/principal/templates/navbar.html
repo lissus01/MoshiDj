@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'carusel.css' %}">
+    <link rel="stylesheet" href="{% static 'carrito.css' %}">
+   
+    <title>Moshi Store</title>
+</head>
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <div class="cosas" style="position:fixed; width: 100%;">
+        <nav class="navbar navbar-expand-lg">
+            <a href="{% url 'inicio' %}" onclick="changeNavbarText(event, 'Inicio')">INICIO</a>
+            <a href="{% url 'productos' %}" onclick="changeNavbarText(event, 'Productos')">PRODUCTOS</a>
+            <a href="{% url 'ofertas' %}" onclick="changeNavbarText(event, 'Ofertas')">OFERTAS</a>
+            <a href="{% url 'nosotros' %}" onclick="changeNavbarText(event, 'Nosotros')">NOSOTROS</a>
+            <a href="{% url 'contactanos' %}" onclick="changeNavbarText(event, 'Contacto')">CONTACTANOS</a>
+            <a href="{% url 'perfil' %}" onclick="changeNavbarText(event, 'Perfil')">PERFIL</a>
+        </nav>
+
+        <nav class="navbar-peque">
+            <a id="navbar-text">˗ˏˋ 🍓 ˎˊ˗ BIENVENIDO A MOSHI STORE ˗ˏˋ 🍓 ˎˊ˗</a>
+        </nav>
+    </div>
+
+    <script>
+        function changeNavbarText(event, page) {
+            event.preventDefault(); // Evita que el enlace siga la URL inmediatamente
+
+            let textContent;
+            switch (page) {
+                case 'Inicio':
+                    textContent = '˗ˏˋ 🍓 ˎˊ˗ BIENVENIDO A MOSHI STORE ˗ˏˋ 🍓 ˎˊ˗';
+                    break;
+                case 'Productos':
+                    textContent = '˗ˏˋ 🍒 ˎˊ˗ DESCUBRE NUESTROS PRODUCTOS ˗ˏˋ 🍒 ˎˊ˗';
+                    break;
+                case 'Ofertas':
+                    textContent = '˗ˏˋ 🍓 ˎˊ˗ APROVECHA NUESTRAS OFERTAS ˗ˏˋ 🍓 ˎˊ˗';
+                    break;
+                case 'Nosotros':
+                    textContent = '˗ˏˋ 🍒 ˎˊ˗ CONOCE MÁS SOBRE NOSOTROS ˗ˏˋ 🍒 ˎˊ˗';
+                    break;
+                case 'Contacto':
+                    textContent = '˗ˏˋ 🍓 ˎˊ˗ CONTÁCTANOS ˗ˏˋ 🍓 ˎˊ˗';
+                    break;
+                case 'Perfil':
+                    textContent = '˗ˏˋ 🍓 ˎˊ˗ TU PERFIL ˗ˏˋ 🍓 ˎˊ˗';
+                    break;
+                default:
+                    textContent = '˗ˏˋ 🍓 ˎˊ˗ BIENVENIDO A MOSHI STORE ˗ˏˋ 🍓 ˎˊ˗';
+            }
+
+            // Almacenar el texto en sessionStorage
+            sessionStorage.setItem('navbarText', textContent);
+
+            // Redirigir a la página después de un pequeño retraso para asegurarse de que el texto se almacene
+            setTimeout(() => {
+                window.location.href = event.target.href;
+            }, 100);
+        }
+
+        // Al cargar la página, recuperar el texto almacenado y actualizar el navbar
+        document.addEventListener('DOMContentLoaded', () => {
+            const storedText = sessionStorage.getItem('navbarText');
+            if (storedText) {
+                document.getElementById('navbar-text').textContent = storedText;
+                // Limpiar el sessionStorage
+                sessionStorage.removeItem('navbarText');
+            }
+        });
+    </script>
+    <script src="{% static 'script.js' %}"></script>
+    {% block body %}
+    {% endblock %}
+    <button id="carrito-boton-id" class="boton-flotante">Carrito <span id="carrito-contador-id">0</span></button>
+
+    <!-- Panel del carrito (flotante) -->
+    <div id="carrito-panel-id" class="carrito-panel">
+        <!-- Contenido del carrito -->
+        <ul id="carrito-items" class="carrito-items">
+            <!-- Aquí se mostrarán los elementos del carrito -->
+        </ul>
+        <p>Total: <span id="carrito-total-id">0</span> CLP</p>
+        <button id="vaciar-carrito-id">Vaciar Carrito</button>
+        <button id="carrito-cerrar-id">Cerrar Carrito</button>
+    </div>
+
+    <!-- Script para manejar el carrito -->
+    <script src="{% static 'carrito.js' %}"></script>
+</body>
+</html>

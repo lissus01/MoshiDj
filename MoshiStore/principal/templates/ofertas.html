@@ -1,0 +1,80 @@
+{% extends "navbar.html" %}
+{% load static %}
+{% block body %}
+
+<section class="productos">
+
+    <div class="categorias">
+        <button onclick="filtrar('todos')">Todos</button>
+        <button onclick="filtrar('dulces')">Dulces</button>
+        <button onclick="filtrar('galletas')">Galletas</button>
+        <button onclick="filtrar('chicles')">Chicles</button>
+        <button onclick="filtrar('chocolates')">Chocolates</button>
+        <button onclick="filtrar('ramen')">Ramen</button>
+    </div>
+    <div class="contenedor">
+        <div class="item dulces">
+            <img src="{% static 'imagenes/dulce_14.jpg' %}" class="moshi_img">
+            <h3>Set Diy Candy</h3>
+            <p>Trio de set's dulces para preparar</p>
+            <p class="precio">$3.500</p>
+            <button class="añadir-carrito" data-name="Set Diy Candy" data-price="3500">Agregar al carrito!</button>
+        </div>
+        <div class="item galletas">
+            <img src="{% static 'imagenes/dulce_15.jpg' %}" class="moshi_img">
+            <h3>Blueberry Pocky</h3>
+            <p>Galleta bañada en crema sabor arándanos ♡</p>
+            <p class="precio">$1000</p>
+            <button class="añadir-carrito" data-name="Blueberry Pocky" data-price="1000">Agregar al carrito!</button>
+        </div>
+        <div class="item chicles">
+            <img src="{% static 'imagenes/imagen_chicle.webp' %}" class="moshi_img">
+            <h3>Chewing gum Blueberry</h3>
+            <p>Chicle/ Goma de mascar sabor arándanos ♡</p>
+            <p class="precio">$1.500</p>
+            <button class="añadir-carrito" data-name="Chewing gum Blueberry" data-price="1500">Agregar al carrito!</button>
+        </div>
+        <div class="item chocolates">
+            <img src="{% static 'imagenes/dulce_11.jpg' %}" class="moshi_img">
+            <h3>Gudetama Chocolate</h3>
+            <p>Chocolates rellenos sabor crema⊹ ࣪ ˖</p>
+            <p class="precio">$2.000</p>
+            <button class="añadir-carrito" data-name="Gudetama Chocolate" data-price="2000">Agregar al carrito!</button>
+        </div>
+        <div class="item ramen">
+            <img src="{% static 'imagenes/dulce_20.jpg' %}" class="moshi_img">
+            <h3>Kitty Noodles</h3>
+            <p>Cuarteto Ramen instantáneo sabor pollo ⊹ ࣪ ˖</p>
+            <p class="precio">$4.990</p>
+            <button class="añadir-carrito" data-name="Kitty Noodles" data-price="4990">Agregar al carrito!</button>
+        </div>
+</section>
+
+<div class="carrito">
+    <button class="carrito-boton" id="carrito-boton-id"><i class="fa-solid fa-cart-shopping"></i></button>
+    <div class="carrito-panel" id="carrito-panel-id">
+        <button class="carrito-cerrar" id="carrito-cerrar-id"><i class="fa-regular fa-circle-xmark"></i></button>
+        <h2>carrito de compras</h2>
+        <ul class="carrito-items"></ul>
+        <div class="carrito-total">Total:<span id="carrito-total-id"> $0</span></div>
+    </div>
+</div>
+
+    
+    <div class="carrito-panel" id="carrito-panel-id">
+        <button class="carrito-cerrar" id="carrito-cerrar-id">
+        </button>
+        <h2>Carrito de Compras</h2>
+        <h5 class="sub-texto">&nbspProducto &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  Cantidad Quitar</h5>
+        <hr>
+        <ul class="carrito-items"></ul>
+        <hr><br>
+        <div class="carrito-total">Total: $<span id="carrito-total-id">0</span></div>
+        <button class="vaciar-carrito" id="vaciar-carrito-id">Vaciar Carrito</button>
+        <button class="pagar" id="pagar-id">Pagar</button>
+    </div>
+</div>
+
+<script src="{% static 'filrtro.js' %}"></script>
+
+{% endblock %}

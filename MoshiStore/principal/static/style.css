@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+   background-color: #f5a7af;
+   font-family:'Rubik';
+}
+
+.cosas{
+    z-index: 2;
+}
+.cuerpo{
+    margin-right: 100px;
+    margin-left: 100px;
+}
+.productos {
+    padding:  100px 100px 100px;
+}
+
+.item {
+    background-color:white;
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    flex-direction: column; /* Para alinear los elementos verticalmente */
+    justify-content: space-between; /* Distribuye los elementos verticalmente */
+    width: 100%; /* Ancho fijo para cada tarjeta */
+    
+}
+
+.item p {    
+    padding: 10px 10px 10px 10px;
+}
+
+.item p:hover {
+    color: palevioletred;
+    cursor: pointer; /*para cambiar el estilo de click o cursor */
+}
+
+.item h3{
+    color: #ff00ae;
+    font-weight: 500;
+}
+
+.item button{ 
+border: 0;
+padding: 10px;
+font-family: 'Rubik';
+background-color:rgba(#ff00ae,0.7) ;
+margin: 10px; 
+align-self: center;
+white-space: nowrap;
+}
+
+
+.item button:hover {
+    color: rgb(234, 104, 150);
+}
+
+.contenedor {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-auto-rows: auto; /* Usamos auto para que se ajuste dinámicamente */
+    justify-content: center;
+    gap: 5vw; /* Cambiamos a unidad relativa para el espacio entre celdas */
+    max-width: 1200px; /* Por ejemplo, un ancho máximo para limitar el tamaño */
+    padding: 0 20px; /* Añadimos padding para evitar que se pegue a los bordes */
+    
+}
+
+.moshi_img {
+    width: 100%; /* Hace que la imagen ocupe el 100% del ancho de su contenedor */
+    max-height: 200px; /* Mantiene la proporciÃ³n de la imagen ajustando automÃ¡ticamente su altura */
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    border-radius: 10px;
+}
+
+
+.moshi_img:hover {
+    transform: scale(1.1);
+
+}
+
+.navbar {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+     /* position: fixed  funcion para que el navbar pueda seguir al usuario   */
+    background-color: #bb4d61;
+    color: #fff;
+    top: 0%;
+    z-index: 1000; 
+    padding: 10px 0; 
+    
+
+}
+
+.navbar-peque {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    background-color: #ffe76d;
+    color: #551616;
+    top: 50px;
+    z-index: 1000; 
+    padding: 10px 0; 
+}
+
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+}
+
+.navbar a:hover {
+    color: palevioletred;  /*hover es para aplicar funciones al pasar el mouse como que cambie de color la letra */
+}
+
+@media screen and (max-width: 636px){
+    .navbar {
+        flex-direction: row;
+        font-size: smaller;
+    }
+    .navbar-peque{
+        font-size: smaller;
+    }
+
+    .categorias button {
+        flex: 1 0 45%; /* Ajusta el ancho de los botones para que ocupen el 45% del contenedor */
+    }
+
+}
+
+@media (min-width: 992px) {
+    .navbar {
+        flex-direction: row;
+        font-size: medium;
+    }
+    .navbar-peque{
+        font-size: medium;
+    }
+}
+
+
+.btn-primary {
+    background-color: #bb4d61; /* Cambia el color de fondo del botÃ³n a negro */
+    border-color: rgb(224, 160, 182); /* Cambia el color del borde del botÃ³n a negro */
+    width: 90px;
+    height: 37px;
+    border-bottom:  #bb4d61;
+    border-top:  #bb4d61;
+    border-left:  #bb4d61;
+    border-right: #bb4d61;
+    color: #fffafc;
+    box-shadow: 0 2px 10px rgba(170, 8, 94, 0.2);
+    border-radius: 6px;
+    margin: 10px; /* margin es para mover los elementos de lugar en caso de no quererlos pegados por ejemplo al borde una pantalla */
+}
+
+#contactForm {
+    margin-top: 50px;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    
+}
+
+.nosotros_img {
+    width: 100%;
+}
+
+
+
+.categorias {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.categorias button {
+    margin: 10 5px;
+    padding: 16px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 30px;
+    font-family: 'Rubik';
+    border-bottom:  #bb4d61;
+    border-top:  #bb4d61;
+    border-left:  #bb4d61;
+    border-right: #bb4d61;
+    background-color: #f9e575; 
+    box-shadow: 0 2px 10px rgba(170, 8, 94, 0.2);
+    border-radius: 6px;
+    
+
+}
+
+/* Asegúrate de que el contenedor del mapa y el clima estación en una sola fila en pantallas más pequeñas */
+.mapacontenedor {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    max-width: 100%;
+    background-color: #cf6f6f;
+    padding-top: 30px;
+    margin-top: 50px;
+    justify-content: center;
+}
+
+.ubicacion-title{
+    color: white;
+    text-align: center;
+}
+
+/* Ajusta el tamaÃ±o del mapa y el clima para que no se superpongan en pantallas mÃ¡s pequeÃ±as */
+#openweathermap-widget-17 {
+    margin: 10px;
+}
+
+/* Ajusta el tamaÃ±o del mapa en pantallas mÃ¡s pequeÃ±as para que se ajuste al contenedor */
+.mapa iframe {
+    margin: 10px;
+    width: 100%;
+    height: 300px; /* Ajusta la altura segÃºn sea necesario */
+}
+
+
+

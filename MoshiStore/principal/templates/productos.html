@@ -1,0 +1,36 @@
+{% extends "navbar.html" %}
+{% load static %}
+{% block body %}
+
+
+<section class="productos">
+    <div class="contenedor">
+        {%for producto in productos%}
+        <div class="item">
+            <img src="{{producto.imagen}}" class="moshi_img">
+            <h3>{{producto.nombre}}</h3>
+            <p>{{producto.descripcion}}</p>
+            <p class="precio">${{producto.precio}}</p>
+            <button class="añadir-carrito" data-name="{{producto.nombre}}" data-price="{{producto.precio}}">Agregar al carrito!</button>
+        </div>
+        {%endfor%}
+        
+    </div>
+</section>
+
+    
+    <div class="carrito">
+        <button class="carrito-boton" id="carrito-boton-id"><i class="fa-solid fa-cart-shopping"></i></button>
+        <div class="carrito-panel" id="carrito-panel-id">
+            <button class="carrito-cerrar" id="carrito-cerrar-id"><i class="fa-regular fa-circle-xmark"></i></button>
+            <h2>carrito de compras</h2>
+            <ul class="carrito-items"></ul>
+            <div class="carrito-total">Total:<span id="carrito-total-id"> $0</span></div>
+        </div>
+    </div>
+
+
+
+
+
+{% endblock %}

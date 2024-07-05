@@ -1,0 +1,151 @@
+.carrito-boton {
+    background-color: rgb(254, 156, 228);
+    color: aliceblue;
+    border: none;
+    padding: 10px;
+    border-radius: 50px;
+    width: 50px;
+    height: 50px;
+    box-shadow: 0 0px 15px rgba(217, 82, 159, 0.5);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.carrito-boton:hover {
+    background-color: rgb(218, 116, 181);
+}
+
+.sub-texto {
+    top: 10px;
+    text-align: justify;
+    color: rgb(191, 147, 176);
+    font-weight: normal;
+}
+
+.carrito {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.carrito-panel {
+    position: fixed;
+    display: none;
+    z-index: 999;
+    max-width: 1600px;
+    right: 20px;
+    width: 430px;
+    bottom: 90px;
+    padding: 20px;
+    background-color: pink;
+    box-shadow: 0 0px 15px rgba(217, 82, 159, 0.5);
+}
+
+.carrito-panel.mostrar-carrito {
+    display: block;
+}
+
+.carrito-items {
+    list-style-type: none;
+    padding: 0;
+    width: 392px; /* Ajusta el ancho de la imagen si es necesario */
+    height: auto; /* Ajusta la altura automáticamente */
+    margin-right: 10px; 
+}
+
+#carrito-contador-id {
+    visibility: hidden;
+    background-color: white;
+    color: #ff6f61;
+    border-radius: 50%;
+    padding: 2px 8px;
+    margin-left: 5px;
+    font-size: 0.75rem;
+    position: absolute;
+    bottom: -5px;
+    right: -2px;
+}
+
+.carrito-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgb(218, 116, 181); /* Opcional: agregar un borde inferior entre elementos */
+}
+
+.carrito-item p {
+    flex: 1; /* Hace que el texto ocupe el espacio restante */
+}
+
+.carrito-cerrar, .vaciar-carrito, .pagar {
+    position: relative;
+    border: 0;
+    background-color: transparent;
+    font-size: 20px;
+    cursor: pointer;
+    float: right;
+}
+
+.carrito-cerrar {
+    align-self: flex-end;
+}
+
+.carrito-total {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.vaciar-carrito, .pagar {
+    background-color: rgb(218, 116, 181);
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    display: block;
+    text-align: center;
+    margin-left: 3%;
+}
+
+.vaciar-carrito:hover, .pagar:hover {
+    background-color: rgb(254, 156, 228);
+}
+
+.icon-cart {
+    width: 26px;
+    height: 26px;
+    vertical-align: middle;
+    stroke: white;
+}
+
+.info-producto {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 378px;
+}
+
+.div-cantidad {
+    display: inline-flex;  /* Utiliza Flexbox para el layout */
+    align-items: center; /* Alinea verticalmente los elementos al centro */
+    gap: 10px;           /* Espacio entre los elementos hijos */
+}
+
+/* Ajusta la posición y otros estilos específicos si es necesario */
+#restar, #sumar {
+    margin: 0 5px;
+    /* Elimina la posición absoluta para permitir que Flexbox maneje la disposición */
+}
+
+.eliminar-tipo {
+    background-color: unset;
+    padding: 3px;
+    margin-left: 5%; /* Añade un margen izquierdo específico para el botón de eliminar */
+  }

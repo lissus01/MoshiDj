@@ -1,0 +1,22 @@
+{% extends "navbar.html" %}
+{% load static %}
+{% block body %}
+
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br>
+<h3 id="nombreUsuario" style="text-align: center;">{{ user.username }}</h3>
+<br>
+<h4 id="correoUsuario" style="text-align: center;">{{ user.email }}</h4>
+<br>
+</div>
+<br>
+<br>
+{% if request.user.is_authenticated %}
+  <div class="col-12 m-auto text-center">
+    <a href="{% url 'exit' %}">
+      <button type="button" class="btn btn-primary" style="height:55px; width:110px; text-align: center;">Cerrar sesión</button>
+    </a> 
+  </div>
+{% endif %}
+
+{% endblock %}
